@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                // Modern JS output
+    "module": "CommonJS",              // Works best with ts-node + Code Runner
+    "moduleResolution": "node",        // Standard Node resolution
+    "strict": true,                    // Enable strict type-checking
+    "esModuleInterop": true,           // Allows default imports from CommonJS
+    "skipLibCheck": true,              // Faster builds, skip .d.ts checking
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["**/*.ts"],              // Pick up all .ts files in project
+  "exclude": ["node_modules"]          // Ignore node_modules
+}
