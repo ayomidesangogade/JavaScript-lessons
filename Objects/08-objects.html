@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Objects</title>
+    </head>
+    <body>
+        <script>
+            const product = {
+                name: 'socks',
+                price: 1090
+            };
+            console.log(typeof product);
+            console.log(product.name);
+            console.log(product.price);
+
+            product.name = 'cotton socks';
+            console.log(product);
+
+            // add new property
+            product.newProperty = true;
+            console.log(product);
+
+            delete product.newProperty;
+            console.log(product);
+
+            const product2 = {
+                name: 'shirt',
+                // the brackets are optional
+                ['delivery-time']: '1 day',
+                rating: {
+                    stars: 4.5, 
+                    count: 87
+                },
+                fun: function function1() {
+                    console.log('function inside object');
+                }
+            };
+            console.log(product2);
+            // Bracket Notation - let us use properties that don't work with dot notation
+            console.log(product2['name']);
+            console.log(product2['delivery-time'])
+            /* Which one should we use?
+            = use dot notation by default
+            - for properties that don't work, use bracket notation
+            */
+           console.log(product2.rating.count);
+           product2.fun();
+
+           console.log(typeof console);
+           console.log(typeof console.log);
+           /*We use JSON
+           - when we send data between computers
+           - when we store data
+           */
+          console.log(JSON.stringify(product2));
+          // from JSON to JavaScript object
+          const jsonString = JSON.stringify(product2);
+          console.log(JSON.parse(jsonString));
+
+          /*
+          null vs undefined
+          null == intentionally want something to be empty
+          */
+        </script>
+    </body>
+</html>
