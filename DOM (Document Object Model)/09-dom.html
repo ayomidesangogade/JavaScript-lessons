@@ -7,8 +7,16 @@
   </head>
   <body>
     <button>Hello</button>
+    <button class="js-button">Second button</button>
 
     <script>
+      // Every HTML element has property .innerHTML
+      console.log(document.querySelector("button").innerHTML);
+      document.querySelector("button").innerHTML = "Changed";
+
+      const buttonElement = document.querySelector(".js-button");
+      console.log(buttonElement);
+      /*
       console.log(document.title);
       document.title = "Changed";
 
@@ -18,7 +26,6 @@
       console.log(document.body.innerHTML);
       document.body.innerHTML = "<button>Good job!</button>";
 
-      /*
       document.body.innerHTML = "Hello";
       document.title = "Good job!";
     */
