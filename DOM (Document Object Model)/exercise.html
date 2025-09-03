@@ -7,10 +7,57 @@
   </head>
   <body>
     <button>9a</button>
-    <button></button>
+    <button class="js-button"></button>
+    <p>
+      <button onclick="handleResultChange('heads');">heads</button>
+      <button onclick="handleResultChange('tails');">tails</button>
+    </p>
+    <p class="js-result"></p>
+    <div>
+      <input
+        placeholder="Type your name"
+        class="js-name-input"
+        onkeydown="handleSubmitResponseKeyDown(event);"
+      />
+      <button onclick="handleSubmitResponse();">Submit</button>
+    </div>
+    <p class="js-submit-response"></p>
+    <input
+      class="js-dynamic-text"
+      placeholder="Enter any text"
+      onkeyup="handleTextChanges(event);"
+    />
+    <p class="js-dynamic-text-paragraph"></p>
 
     <script>
       console.log(document.querySelector("button"));
+      document.querySelector(".js-button").innerHTML = "9b done!";
+
+      function handleResultChange(text) {
+        if (text === "heads")
+          document.querySelector(".js-result").innerHTML = `You chose: ${text}`;
+        else
+          document.querySelector(".js-result").innerHTML = `You chose: ${text}`;
+      }
+
+      function handleSubmitResponse() {
+        const inputElement = document.querySelector(".js-name-input").value;
+
+        document.querySelector(
+          ".js-submit-response"
+        ).innerHTML = `Your name is: ${inputElement}`;
+      }
+
+      function handleSubmitResponseKeyDown(event) {
+        if (event.key === "Enter") {
+          handleSubmitResponse();
+        }
+      }
+
+      function handleTextChanges(event) {
+        document.querySelector(".js-dynamic-text-paragraph").innerHTML =
+          document.querySelector(".js-dynamic-text").value;
+      }
     </script>
   </body>
 </html>
