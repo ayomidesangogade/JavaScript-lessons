@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <button onkeydown="handleCostKeyDown(event);">+</button>
+    <span class="js-display-count"></span>
+    <button onclick="handleSubstraction();">-</button>
+    <script>
+      let count = 0;
+
+      document.querySelector(".js-display-count").innerHTML = count;
+      function handleAddition() {
+        count++;
+        document.querySelector(".js-display-count").innerHTML = count;
+      }
+
+      function handleSubstraction() {
+        count--;
+        document.querySelector(".js-display-count").innerHTML = count;
+      }
+
+      function handleCostKeyDown(event) {
+        if (event.key === "Enter") handleAddition();
+      }
+    </script>
+  </body>
+</html>
