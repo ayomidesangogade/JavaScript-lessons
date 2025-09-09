@@ -137,6 +137,29 @@ console.log(minMax([-2, 3, -5, 7, 10]));
 console.log(minMax([]));
 console.log(minMax([3]));
 
+const randomWords = [
+    "ocean", "lamp", "lamp", "lamp", "horizon",
+    "flutter", "guitar", "guitar", "puzzle", "silver",
+    "echo", "tiger", "marble", "shadow", "shadow",
+    "compass", "feather", "feather", "feather", "crimson",
+    "planet", "planet", "spark", "river", "river",
+    "glide", "stone", "stone", "stone", "stone",
+    "dawn", "dawn", "lamp", "lamp", "lamp",
+    "tiger", "tiger", "tiger", "ocean", "ocean",
+    "spark", "spark", "spark", "shadow", "shadow",
+    "flutter", "flutter", "flutter", "flutter", "flutter",
+    "echo", "echo", "echo", "marble", "marble",
+    "marble", "silver", "silver", "compass", "compass",
+    "planet", "planet", "planet", "planet", "planet",
+    "crimson", "crimson", "crimson", "river", "river",
+    "river", "river", "glide", "glide", "glide",
+    "stone", "stone", "stone", "stone", "stone",
+    "dawn", "dawn", "dawn", "dawn", "dawn",
+    "lamp", "lamp", "lamp", "lamp", "lamp",
+    "ocean", "ocean", "ocean", "tiger", "tiger",
+    "spark", "spark", "spark", "spark", "spark"
+];
+
 function countWords(array) {
     const count = {};
     let num = 0;
@@ -151,5 +174,8 @@ function countWords(array) {
     }
     return count;
 }
-
-console.log(countWords(['apple', 'grape', 'apple', 'apple', 'grape']));
+// ['apple', 'grape', 'apple', 'apple', 'grape']
+if (Array.isArray(randomWords))
+    console.log(countWords(randomWords));
+else
+    console.log('Parameter is not an array!');
