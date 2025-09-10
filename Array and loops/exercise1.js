@@ -12,6 +12,9 @@ console.log(getLastValue([1, 20, 22, 24, 5]));
 console.log(getLastValue(['hi', 'hello', 'good']));
 
 function arraySwap(array) {
+    if (!Array.isArray(array)) {
+        return 'Parameter is not an array!';
+    }
     const firstElement = array[0];
     const lastElement = array[array.length - 1];
     array[0] = lastElement;
@@ -48,6 +51,10 @@ while (j >= 0) {
 }
 
 function addOne(array) {
+    if (!Array.isArray(array)) {
+        return 'Parameter is not an array!';
+    }
+
     const newArray = [];
 
     for (let i = 0; i < array.length; i++) {
@@ -60,6 +67,10 @@ console.log(addOne([1, 2, 3]));
 console.log(addOne([-2, -1, 0, 99]));
 
 function addNum(array, num) {
+    if (!Array.isArray(array)) {
+        return 'Parameter is not an array!';
+    }
+
     const newArray = [];
 
     for (let i = 0; i < array.length; i++) {
@@ -161,6 +172,10 @@ const randomWords = [
 ];
 
 function countWords(array) {
+    if (!Array.isArray(array)) {
+        return 'Parameter is not an array!';
+    }
+
     const count = {};
     let num = 0;
     for (let i = 0; i < array.length; i++) {
@@ -175,7 +190,4 @@ function countWords(array) {
     return count;
 }
 // ['apple', 'grape', 'apple', 'apple', 'grape']
-if (Array.isArray(randomWords))
-    console.log(countWords(randomWords));
-else
-    console.log('Parameter is not an array!');
+console.log(countWords(randomWords));

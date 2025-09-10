@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Numbers Checker</title>
+  </head>
+  <body>
+    <p>Prime Number Checker</p>
+    <input
+      placeholder="Enter a number"
+      class="js-number-input"
+      onkeydown="isPrimeOnKeyDown(event);"
+    />
+    <button onclick="isPrime();">Submit</button>
+    <div class="js-display-message"></div>
+    <script>
+      function isPrime() {
+        let inputElement = document.querySelector(".js-number-input").value;
+
+        inputElement = Number(inputElement);
+
+        for (let i = 2; i < inputElement; i++) {
+          if (inputElement % i === 0) {
+            document.querySelector(
+              ".js-display-message"
+            ).innerHTML = `${inputElement} is not a prime number.`;
+            break;
+          }
+          document.querySelector(
+            ".js-display-message"
+          ).innerHTML = `${inputElement} is a prime number.`;
+        }
+      }
+
+      function isPrimeOnKeyDown(event) {
+        if (event.key === "Enter") {
+          isPrime();
+        }
+      }
+    </script>
+  </body>
+</html>
