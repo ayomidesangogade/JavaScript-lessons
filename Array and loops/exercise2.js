@@ -31,9 +31,19 @@ function findIndex(array, word) {
 console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
 console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
 
-function unique() {
+function unique(array) {
+    const newArray = [];
 
+    for (let i = 0; i < array.length; i++) {
+        newArray[findIndex(array, array[i])] = array[i];
+    }
+
+    return newArray;
 }
+
+console.log(unique(['green', 'red', 'blue', 'red']));
+console.log(unique(['green', 'red', 'red', 'green']));
+console.log(unique(['red', 'green', 'green', 'red']));
 
 function removeEgg(foods) {
     if (!Array.isArray(foods)) {
