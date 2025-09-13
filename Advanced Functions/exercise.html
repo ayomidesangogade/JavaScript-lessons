@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise</title>
+  </head>
+  <body>
+    <button onclick="startButton();" class="js-start-button">Start</button>
+    <button onclick="addToCart();">Add to Cart</button>
+    <p class="js-display-message"></p>
+    <script>
+      const add = function () {
+        console.log(2 + 3);
+      };
+      for (let i = 0; i < 2; i++) {
+        add();
+      }
+
+      function runTwice(fun) {
+        for (let i = 0; i < 2; i++) {
+          fun();
+        }
+      }
+
+      runTwice(function () {
+        console.log("12b");
+      });
+      runTwice(add);
+
+      function startButton() {
+        document.querySelector(".js-start-button").innerHTML = "Loading...";
+        setTimeout(function () {
+          document.querySelector(".js-start-button").innerHTML = "Finished!";
+        }, 1000);
+      }
+
+      function addToCart() {
+        document.querySelector(".js-display-message").innerHTML = "Added";
+        let isTimeOut = false;
+        let timeOutID;
+
+        if (!isTimeOut) {
+          timeOutID = setTimeout(function () {
+            document.querySelector(".js-display-message").innerHTML = "";
+          }, 2000);
+          isTimeOut = true;
+        } else {
+          clearTimeout(timeOutID);
+          setTimeout(function () {
+            document.querySelector(".js-display-message").innerHTML = "";
+          }, 2000);
+          isTimeOut = false;
+        }
+      }
+    </script>
+  </body>
+</html>
