@@ -6,23 +6,40 @@
     <title>App</title>
   </head>
   <body>
-    <button onclick="messages++">Add</button>
-    <button onclick="messages--">Remove</button>
+    <button
+      onclick="
+      messages++;
+      handleInterval();
+    "
+    >
+      Add
+    </button>
+    <button
+      onclick="
+      messages--;
+      handleInterval();
+    "
+    >
+      Remove
+    </button>
     <script>
       let messages = 2;
       let intervalID;
 
-      if (messages > 0) {
-        intervalID = setInterval(function () {
-          if (document.title === "App")
-            document.title = `(${messages}) New messages`;
-          else document.title = "App";
-        }, 1000);
-      } else if (messages === 0) {
+      function handleInterval() {
         clearInterval(intervalID);
-        document.title = "App";
+
+        if (messages > 0) {
+          intervalID = setInterval(function () {
+            if (document.title === "App")
+              document.title = `(${messages}) New messages`;
+            else document.title = "App";
+          }, 1000);
+        } else if (messages === 0) {
+          clearInterval(intervalID);
+          document.title = "App";
+        }
       }
-      console.log(messages);
     </script>
   </body>
 </html>
