@@ -6,11 +6,11 @@
     <title>Exercise</title>
   </head>
   <body>
-    <button onclick="startButton();" class="js-start-button">Start</button>
-    <button onclick="addToCart();">Add to Cart</button>
+    <button class="js-start-button">Start</button>
+    <button class="js-add-cart-button">Add to Cart</button>
     <p class="js-display-message"></p>
     <script>
-      const add = function () {
+      const add = () => {
         console.log(2 + 3);
       };
       for (let i = 0; i < 2; i++) {
@@ -23,10 +23,16 @@
         }
       }
 
-      runTwice(function () {
+      runTwice(() => {
         console.log("12b");
       });
       runTwice(add);
+
+      document
+        .querySelector(".js-start-button")
+        .addEventListener("click", () => {
+          startButton();
+        });
 
       function startButton() {
         document.querySelector(".js-start-button").innerHTML = "Loading...";
@@ -34,6 +40,12 @@
           document.querySelector(".js-start-button").innerHTML = "Finished!";
         }, 1000);
       }
+
+      document
+        .querySelector(".js-add-cart-button")
+        .addEventListener("click", () => {
+          addToCart();
+        });
 
       function addToCart() {
         document.querySelector(".js-display-message").innerHTML = "Added";

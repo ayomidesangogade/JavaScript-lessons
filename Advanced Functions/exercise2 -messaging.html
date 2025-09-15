@@ -9,7 +9,6 @@
     <button
       onclick="
       messages++;
-      handleInterval();
     "
     >
       Add
@@ -17,7 +16,6 @@
     <button
       onclick="
       messages--;
-      handleInterval();
     "
     >
       Remove
@@ -26,18 +24,20 @@
       let messages = 2;
       let intervalID;
 
-      function handleInterval() {
-        clearInterval(intervalID);
+      intervalID = setInterval(function () {
+        if (document.title === "App")
+          document.title = `(${messages}) New messages`;
+        else document.title = "App";
 
-        if (messages > 0) {
-          intervalID = setInterval(function () {
-            if (document.title === "App")
-              document.title = `(${messages}) New messages`;
-            else document.title = "App";
-          }, 1000);
-        } else if (messages === 0) {
+        handleInterval();
+      }, 1000);
+
+      function handleInterval() {
+        if (messages === 0) {
           clearInterval(intervalID);
           document.title = "App";
+        } else if (messages > 0) {
+          intervalID;
         }
       }
     </script>
