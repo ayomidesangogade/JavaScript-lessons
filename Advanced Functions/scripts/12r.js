@@ -14,6 +14,30 @@ updateScoreElement();
 //     };
 // }
 
+function reset() {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+
+    updateScoreElement();
+}
+
+document.querySelector('.js-reset-score-button').addEventListener('click', () => {
+    document.querySelector('.js-reset-modal').style.display = 'flex';
+});
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace') {
+        document.querySelector('.js-reset-modal').style.display = 'flex';
+    }
+});
+document.querySelector('.js-yes-reset').addEventListener('click', () => {
+    reset();
+    document.querySelector('.js-reset-modal').style.display = 'none';
+});
+document.querySelector('.js-no-reset').addEventListener('click', () => {
+    document.querySelector('.js-reset-modal').style.display = 'none';
+});
+
 function pickComputerMove() {
     const randomNumber = Math.random();
     let computerMove = "";
@@ -38,6 +62,12 @@ function updateScoreElement() {
 document.querySelector('.js-auto-play-button').addEventListener('click', () => {
     autoPlay();
 });
+document.body.addEventListener('keydown', (event) => {
+    if (event.key === 'a') {
+        autoPlay();
+    }
+});
+
 let isAutoPlaying = false;
 let intervalId;
 
